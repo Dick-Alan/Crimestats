@@ -1,0 +1,60 @@
+.map-container {
+    background-color: white;
+    position: fixed;
+    
+}
+button, select, .label, .current-city {
+    background-color: #000000F0;
+    border: 1px solid green;
+    color: greenyellow;
+    font-family: monospace;
+    
+}
+.search {
+    z-index: 9999;
+    position: fixed;
+    text-align: left;
+    margin-top: 85vh;
+}
+.nav-buttons {
+    display: block;
+    position: fixed;
+    z-index: 99;
+    background-color: #0000001c;
+    align-self: right;
+    width: 100%;
+}
+.nav-buttons:hover {
+    color: 'green';
+}
+
+.navigation:hover + .nav-buttons {
+    display: block;
+}
+.details {
+    display: none;
+    position: absolute;
+    object-position: 90%;
+    z-index: 999;
+    background-color: #000000E0;
+    align-items: center;
+
+    text-align: left;
+    
+}
+.breakdown:hover + .details {
+    display: block;
+    text-align: top;
+    position: fixed;
+    justify-content: top;
+    width: auto;
+    align-items: right;
+}
+
+.spacer {
+    height: 90vh;
+    background-color: #00000000;
+    position: absolute;
+    align-items: right;
+    text-align: right;
+}
