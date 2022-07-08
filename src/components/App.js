@@ -126,7 +126,7 @@ class App extends React.Component {
             baseURL: 'https://ukpolicedata.p.rapidapi.com',
             params: params,
             headers: {
-              'X-RapidAPI-Key': 'c838eb78camsh91d46c9d96dac27p192e90jsnc7f5490ea021',
+              'X-RapidAPI-Key': 'YOUR API KEY',
               'X-RapidAPI-Host': 'ukpolicedata.p.rapidapi.com'
             }
           });
@@ -268,7 +268,7 @@ class App extends React.Component {
                         
                         style={{width: '100vw', height: '100vh', fontSize: '0'}}
                         mapStyle="mapbox://styles/mapbox/dark-v10"
-                        mapboxAccessToken="pk.eyJ1IjoicmljaGFyZHJla293IiwiYSI6ImNsNWJzNGx4YTAxc28zbHE5aWhyYnZxbmcifQ.H0R82QN8ixcrKukbS4kBeA"
+                        mapboxAccessToken="YOUR MAPBOX TOKEN"
                     >   
                        
                         <CrimeList crimes={this.state.crimes}/>
