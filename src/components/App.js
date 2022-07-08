@@ -2,7 +2,7 @@
 import React, {useState, useEffect} from 'react';
 import CrimeList from './crimelist.js';
 import './App.css';
-
+import 'mapbox-gl/dist/mapbox-gl.css';
 import Map, { Source, Layer, Popup } from 'react-map-gl'; 
 import axios from 'axios';
 import SearchBar from './searchbar.js';
@@ -20,7 +20,7 @@ class App extends React.Component {
     
     
     state = { crimes: [],
-             lat: 51.5072,
+            lat: 51.5072,
             lng: -0.1275,
             zoom: 13,
             pitch: 60, 
@@ -50,16 +50,16 @@ class App extends React.Component {
     onSearchSubmit = (term) => {
         const dest = []
         const cities = data.map((e) => {
-            if (term.toLowerCase() == e.city.toLowerCase()) {
+            if (term.toLowerCase() === e.city.toLowerCase()) {
                 dest.push(e.city, e.lat, e.lng)
                 this.setState({ lng: dest[2], lat: dest[1]})
                 console.log(`moved to ${dest[0]}`)
             }
             
         });
-        const userMessage = (`moving you to ${this.state.city}}`)
+        
         this.setState({city: dest[0]})
-        console.log(dest)
+        
         
        
                
@@ -114,7 +114,6 @@ class App extends React.Component {
         const vehiclecrimes = [];
         const arsons= [];
         const shopliftings= [];
-        const weapons= [];
         const drugs= [];
         const burglaries= [];
         const othercrimes = [];
@@ -126,7 +125,7 @@ class App extends React.Component {
             baseURL: 'https://ukpolicedata.p.rapidapi.com',
             params: params,
             headers: {
-              'X-RapidAPI-Key': 'YOUR API KEY',
+              'X-RapidAPI-Key': 'c838eb78camsh91d46c9d96dac27p192e90jsnc7f5490ea021',
               'X-RapidAPI-Host': 'ukpolicedata.p.rapidapi.com'
             }
           });
@@ -134,47 +133,47 @@ class App extends React.Component {
         const crimes = (await response).data
 
         const stats = crimes.map((crime) => {
-            if (crime.category == 'violent-crime') {
+            if (crime.category === 'violent-crime') {
                 violentcrimes.push(crime)
                 this.setState({violentcount: violentcrimes.length})
             }
-            if (crime.category == 'robbery') {
+            if (crime.category === 'robbery') {
                 robberies.push(crime)
                 this.setState({robberycount: robberies.length})
             }
-            if (crime.category == 'other-theft' || crime.category == "bicycle-theft" || crime.category == "theft-from-the-person") {
+            if (crime.category === 'other-theft' || crime.category === "bicycle-theft" || crime.category === "theft-from-the-person") {
                 thefts.push(crime)
                 this.setState({theftcount: thefts.length})
             }
-            if (crime.category == 'criminal-damage-arson') {
+            if (crime.category === 'criminal-damage-arson') {
                 arsons.push(crime)
                 this.setState({arsoncount: arsons.length})
             }
-            if (crime.category == 'burglary') {
+            if (crime.category === 'burglary') {
                 burglaries.push(crime)
                 this.setState({burglarycount: burglaries.length})
             }
-            if (crime.category == 'shoplifting') {
+            if (crime.category === 'shoplifting') {
                 shopliftings.push(crime)
                 this.setState({shopliftingcount: shopliftings.length})
             }
-            if (crime.category == 'drugs') {
+            if (crime.category === 'drugs') {
                 drugs.push(crime)
                 this.setState({drugscount: drugs.length})
             }
-            if (crime.category == 'public-order') {
+            if (crime.category === 'public-order') {
                 publicorders.push(crime)
                 this.setState({publicordercount: publicorders.length})
             }
-            if (crime.category == 'anti-social-behaviour') {
+            if (crime.category === 'anti-social-behaviour') {
                 antisocials.push(crime)
                 this.setState({antisocialcount: antisocials.length})
             }
-            if (crime.category == 'vehicle-crime') {
+            if (crime.category === 'vehicle-crime') {
                 vehiclecrimes.push(crime)
                 this.setState({vehiclecount: vehiclecrimes.length})
             }
-            if (crime.category == 'other-crime') {
+            if (crime.category === 'other-crime') {
                 othercrimes.push(crime)
                 this.setState({othercount: othercrimes.length})
             }
@@ -268,7 +267,7 @@ class App extends React.Component {
                         
                         style={{width: '100vw', height: '100vh', fontSize: '0'}}
                         mapStyle="mapbox://styles/mapbox/dark-v10"
-                        mapboxAccessToken="YOUR MAPBOX TOKEN"
+                        mapboxAccessToken="pk.eyJ1IjoicmljaGFyZHJla293IiwiYSI6ImNsNWJzNGx4YTAxc28zbHE5aWhyYnZxbmcifQ.H0R82QN8ixcrKukbS4kBeA"
                     >   
                        
                         <CrimeList crimes={this.state.crimes}/>
