@@ -13,6 +13,7 @@ import data from './data.json';
 
 
 
+
 class App extends React.Component {
     
     
@@ -266,8 +267,8 @@ class App extends React.Component {
                         viewState={{longitude: this.state.lng, latitude: this.state.lat, zoom: this.state.zoom, pitch: this.state.pitch, bearing: this.state.bearing}}
                         
                         style={{width: '100vw', height: '100vh', fontSize: '0'}}
-                        mapStyle="mapbox://styles/mapbox/dark-v10"
-                        mapboxAccessToken="pk.eyJ1IjoicmljaGFyZHJla293IiwiYSI6ImNsNWJzNGx4YTAxc28zbHE5aWhyYnZxbmcifQ.H0R82QN8ixcrKukbS4kBeA"
+                        mapStyle="mapbox://styles/mapbox/dark-v9"
+                        mapboxAccessToken="API KEY HERE"
                     >   
                        
                         <CrimeList crimes={this.state.crimes}/>

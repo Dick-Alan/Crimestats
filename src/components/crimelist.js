@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import { Layer, Source } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
+
+
 const CrimeList = (props) => {
       
     const violentcrimes =  {
